@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pill from '../components/Pill.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Jeanine White" description="About Jeanine White Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline=""
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/mario-portrait.webp"
+					alt="Jeanine White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						
+					</p>
+					<p>
+						I am a life long learner who likes to make things and find outside the box solutions to tough problems. 
+					</p>
+					<p>
+						
+					</p>
+					
+					
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>University of Louisville B.A. Communications (2025)</p>
+					<p>Galvanize Full Stack Bootcamp</p>
+					<p>Udemy: Design, Marketing, SEO</p>
+						
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					
+					<p class="skillBullet">Design</p>
+					<div class="pillInline">
+						<div class=""><Pill class="pill">UI/UX</Pill></div>
+						<div class=""><Pill class="pill">CAD (Solidworks)</Pill></div>
+						<div class=""><Pill class="pill">Vector Art (Logos/Icons)</Pill></div>
+					</div>
+
+					<p class="skillBullet">Front-End Web Dev</p>
+					<div class="pillInline">
+						<div class=""><Pill class="pill">Javascript</Pill></div>
+						<div class=""><Pill class="pill">Vanilla CSS</Pill></div>
+						<div class=""><Pill class="pill">Next.js</Pill></div>
+					</div>
+					<p class="skillBullet">Back-End Web Dev</p>
+					<div class="pillInline">
+						<div class=""><Pill class="pill">MongoDB</Pill></div>
+						<div class=""><Pill class="pill">GraphQL</Pill></div>
+						<div class=""><Pill class="pill">PostgresQL</Pill></div>
+					</div>
+					<!-- <div class="chart">
+						<div class="bar" style="--percent: 0;" id="bar1">asdf</div>
+						<div class="bar" style="--percent: 25;" id="bar2"></div>
+						<div class="bar" style="--percent: 50;" id="bar3"></div>
+						<div class="bar" style="--percent: 75;" id="bar4"></div>
+						<div class="bar" style="--percent: 100;" id="bar5"></div>
+					  </div> -->
+				</div>
+			</section>
+			
+		</main>
+
+	
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+	.skillBullet {
+		font-weight: bold;
+	
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+		.pillInline {
+			display: flex;
+			flex-direction: row;
+			width: max-content;
+			flex-wrap: wrap;
+			gap: 1rem;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+
+		}
+	}
+	/* ---------------------------------- */
+	.chart {
+  display: flex-end;
+  flex-direction:column;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bar {
+  background-color: #0074d9;
+  height: 1.5rem;
+
+  margin-right: 10px;
+  margin-top:0.5rem;
+  margin-bottom:0.5rem;
+}
+#bar1 {
+	background-color: red;
+}
+#bar2 {
+	background-color: green;
+}
+
+.bar:last-child {
+  margin-right: 0;
+}
+
+.bar::before {
+  content: "";
+  display: block;
+  height: inherit;
+  background-color: inherit;
+}
+
+.bar:nth-child(1)::before {
+  width: calc(var(--percent) * (100% / (100 - 0)));
+}
+
+.bar:nth-child(2)::before {
+  width: calc(var(--percent) * (100% / (100 - 25)));
+}
+
+.bar:nth-child(3)::before {
+  width: calc(var(--percent) * (100% / (100 - 50)));
+}
+
+.bar:nth-child(4)::before {
+  width: calc(var(--percent) * (100% / (100 - 75)));
+}
+
+.bar:nth-child(5)::before {
+  width: calc(var(--percent) * (100% / (100 - 100)));
+}
